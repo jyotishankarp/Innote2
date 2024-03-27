@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "avnadmin",
+    "password": "AVNS_NswxJJq5SsAmKM9ubpE",
+    "database": "innote",
+    "host": "mysql-2f658842-jyotishankar-5906.a.aivencloud.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

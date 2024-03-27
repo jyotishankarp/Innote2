@@ -1,0 +1,1 @@
+Initial Commit for note taking app
