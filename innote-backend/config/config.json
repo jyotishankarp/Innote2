@@ -4,7 +4,8 @@
     "password": "AVNS_NswxJJq5SsAmKM9ubpE",
     "database": "innote",
     "host": "mysql-2f658842-jyotishankar-5906.a.aivencloud.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "25843"
   },
   "test": {
     "username": "root",
