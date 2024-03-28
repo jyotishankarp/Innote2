@@ -17,6 +17,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-joi-validation": "^5.0.1",
+    "mysql2": "^3.9.3",
     "passport": "^0.7.0"
   },
   "devDependencies": {
