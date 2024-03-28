@@ -1,1 +1,1 @@
-Initial Commit for note taking app abcd
+Initial Commit for note taking app
