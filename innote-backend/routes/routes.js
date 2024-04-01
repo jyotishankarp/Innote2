@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const validator = require('express-joi-validation').createValidator({})
-// const controllerCtrl = require('../controller/controller');
+const ctrl = require('../controllers/auth.controller');
 // const homeSchema = require('../validators/home.validators');
 // const categoriesCtrl = require('../controller/products-ctegories/categories.controller');
 // const subCategoriesCtrl = require('../controller/products-ctegories/sub-ctegories.controller');
@@ -10,9 +10,9 @@ const validator = require('express-joi-validation').createValidator({})
 // const { upload } = require("../helper/imageUploader");
 
 //Auth Routes
-router.get('/login');
-router.get('/signup');
-router.get('/forgotPassword');
+router.post('/login',ctrl.SignIn);
+router.post('/signup');
+router.post('/forgotPassword');
 
 //Categories routes
 // router.get('/categories', categoriesCtrl.getAllCategories);

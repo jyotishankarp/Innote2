@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
@@ -15,6 +15,15 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
+// Test the connection(Mine)
+sequelize.authenticate()
+  .then(() => {
+    console.log('Database connection successfull');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 fs
   .readdirSync(__dirname)
@@ -31,6 +40,12 @@ fs
     db[model.name] = model;
   });
 
+  db.dummy2 = require('./dummy2')(sequelize, DataTypes);
+  db.User = require('./user')(sequelize, DataTypes);
+  db.Notes = require('./notes')(sequelize, DataTypes);
+  db.Tags = require('./tags')(sequelize, DataTypes);
+  db.NoteTags = require('./note_tags')(sequelize, DataTypes);
+  
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
