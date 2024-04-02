@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 
 const router = require('./routes/routes');
-// const authrouter = require('./routes/auth.routes');
+const authrouter = require('./routes/auth.routes');
 // const productsAndCtegories = require('./routes/products-ctegories.routes');
 // const cartsAndCheckouts = require('./routes/carts-checkout.routes');
 // const { errorHandler } = require('./helper/errorHandler');
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'resources'))); //for Image Static S
 
 //All Routes:
 // app.use(router);//Regutar Routes
-// app.use("/auth", authrouter);//Protected Routes
+app.use(`/auth/${process.env.API_VERSION}`, authrouter);//Protected Routes
 // app.use("/products-categories", productsAndCtegories);//For Product & Categories Routes
 // app.use(`/auth/${process.env.API_VERSION}`,passport.authenticate("jwt", { session: false }), cartsAndCheckouts);//For Carts & Checkouts Routes
 // const userProfile = require('./routes/profile.routes');
@@ -49,9 +49,9 @@ app
     .get('/', (req, res) => {
         res.send('server is running..')
     })
-    .listen(process.env.PORT || 3000, () => {
+    .listen(process.env.SERVER_PORT || 3000, () => {
         console.log("successfully connected to the server..")
-        console.log(`Server running in ${process.env.NODE_ENV} mode on port ${process.env.PORT || 3000}`.yellow.bold);
+        console.log(`Server running in ${process.env.NODE_ENV} mode on port ${process.env.SERVER_PORT || 3000}`.yellow.bold);
     })
 
 // app.get('/api/getkey', (req, res) => {
